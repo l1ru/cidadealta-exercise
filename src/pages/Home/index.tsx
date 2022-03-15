@@ -7,7 +7,7 @@ import {GlobalStyles} from '../../styles/GlobalStyles'
 import Auth from '../Auth';
 import { useSelector } from 'react-redux';
 import Penal from '../Penal';
-import EditModal from '../../components/EditModal';
+import EditModal from '../../components/InfoModal';
 
 const Home: React.FC = () => {
     // @ts-ignore

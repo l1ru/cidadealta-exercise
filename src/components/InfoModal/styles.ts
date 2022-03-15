@@ -24,8 +24,8 @@ export const Button = styled.button`
     transition: 500ms; 
     &:hover {
         transform: scale(1.1);
-        background-color: #f6601f;
-        box-shadow: 0px 0px 8px 0px #f6601f;
+        background-color: #1976d2;
+        box-shadow: 0px 0px 8px 0px #1976d2;
     }
 `
 
@@ -137,26 +137,8 @@ export const DateCreation = styled.div`
 export const EditButton = styled.div`
     max-width: 75%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 3vh;
 
-    .edit-button {
-        cursor: pointer;
-        width: 50%;
-        background-color: #f6601f;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        border-radius: 5px;
-        .icon {
-            padding: 6px;
-            background-color: #f8f8ff40;
-            border-radius: 5px;
-            color: #f8f8ff;
-        }
-        .title {
-            font-family: "Inter", sans-serif;
-            color: #f8f8ff;
-            padding: 10px;
-        }
-    }
+    display: flex;
+    justify-content: space-between;
 `

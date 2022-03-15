@@ -21,24 +21,49 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import TextField from '@mui/material/TextField';
-import { useSelector } from 'react-redux';
+import MuiButton from '@mui/material/Button';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../services/Store';
+import { setActivedInfoModal } from '../../services/slices/ContainerSlice';
+import { updatePenalCode } from '../../services/slices/PenalSlice';
 
 const EditModal: React.FC = () => {
+    const state = useSelector<RootState>(state => state)
+    const dispatch = useDispatch()
     // @ts-ignore
-    const state = useSelector(state => state.container)
-    const actualPenalCode = state.penalCodes[state.infoModalActived]
+    const actualPenalCode = state.penalCode[state.container.infoModalActived]
 
-    let [open, setOpen] = useState(true)
-    let [title, setTitle] = useState('Desacato')
-    let [description, setDescription] = useState('Desacato, desobediência ou desrespeito perante um tribunal ou oficiais da policia na forma de\n' +
-        '                comportamento que se opõe ou desafia a autoridade, a justiça e a dignidade do tribunal. Um réu só pode\n' +
-        '                ser cobrado uma vez por desacato')
-    let [penality, setPenality] = useState(5000)
-    let [time, setTime] = useState(30)
+    let [open, setOpen] = useState(false)
+    let [title, setTitle] = useState(actualPenalCode.nome)
+    let [description, setDescription] = useState(actualPenalCode.descricao)
+    let [penality, setPenality] = useState( actualPenalCode.multa)
+    let [time, setTime] = useState(actualPenalCode.tempoPrisao)
+
+
 
     function handleOpen() { setOpen(true) }
-
     function handleClose() { setOpen(false) }
+    let closeModal = () => {
+        dispatch(setActivedInfoModal({
+            index: 0,
+            actived: false,
+        }))
+    }
+
+    const handleConfirm = () => {
+        let penalId = actualPenalCode.id
+        dispatch(updatePenalCode({
+            id: penalId,
+            nome: title,
+            descricao: description,
+            dataCriacao: actualPenalCode.dataCriacao,
+            multa: penality,
+            tempoPrisao: time,
+            status: actualPenalCode.status
+        }))
+        handleClose()
+    }
 
     let date = new Date(actualPenalCode.dataCriacao)
     let months = ["Janeiro","Feveiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Dezembro"]
@@ -46,12 +71,10 @@ const EditModal: React.FC = () => {
     let month = months[date.getMonth() - 1]
     let fullYear = date.getFullYear()
 
-
-
     return (
         <Modal>
             <ButtonContainer>
-                <Button>
+                <Button onClick={closeModal} >
                     <FiArrowLeft/>
                 </Button>
             </ButtonContainer>
@@ -74,41 +97,49 @@ const EditModal: React.FC = () => {
                 </div>
             </TextContainer>
             <DescriptionContainer>
-                {description}
+                {actualPenalCode.descricao}
             </DescriptionContainer>
             <DateCreation>
                 Data de criação: <span>{`${day} de ${month} de ${fullYear}`}</span>
             </DateCreation>
+
             <EditButton>
-                <div className='edit-button' onClick={handleOpen} >
-                    <div className='icon'><FiEdit2/></div>
+                <MuiButton variant='outlined' onClick={handleOpen} >
                     <div className='title'>EDITAR</div>
-                </div>
+                </MuiButton>
+
+                <MuiButton variant='outlined' color='error' onClick={handleOpen} >
+                    <div className='title'>DELETAR</div>
+                </MuiButton>
             </EditButton>
 
+            
             <Dialog open={open} onClose={handleClose} >
                 <DialogContent>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id={title}
-                        label="Novo titulo"
-                        fullWidth
-                        variant="standard"
-                    />
-                </DialogContent>
-                <DialogContent>
                     <DialogContentText>
-                        Descrição
+                        {actualPenalCode.nome}
                     </DialogContentText>
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="title"
+                        label="Novo titulo"
+                        fullWidth
+                        variant="outlined"
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                </DialogContent>
+                <DialogContent>
+                    <DialogContentText>
+                        {actualPenalCode.descricao}
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
                         label="Nova descrição"
                         fullWidth
-                        variant="standard"
-                        onChange={(e) => console.log(e.target.value)}
+                        multiline={true}
+                        variant="outlined"
+                        onChange={(e) => setDescription(e.target.value)}
                     />
                 </DialogContent>
 
@@ -119,11 +150,11 @@ const EditModal: React.FC = () => {
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="title"
-                        label={penality}
+                        label={actualPenalCode.multa}
                         type={"number"}
                         fullWidth
-                        variant="standard"
+                        variant="outlined"
+                        onChange={(e) => setPenality(e.target.value)}
                     />
                 </DialogContent>
 
@@ -134,16 +165,16 @@ const EditModal: React.FC = () => {
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="title"
-                        label={time}
+                        label={actualPenalCode.tempoPrisao}
                         type={"number"}
                         fullWidth
-                        variant="standard"
+                        variant="outlined"
+                        onChange={(e) => setTime(e.target.value)}
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancelar</Button>
-                    <Button onClick={handleClose}>Confirmar</Button>
+                    <MuiButton variant='contained' color='error' onClick={handleClose}>Cancelar</MuiButton>
+                    <MuiButton variant='contained' onClick={handleConfirm}>Confirmar</MuiButton>
                 </DialogActions>
             </Dialog>
         </Modal>

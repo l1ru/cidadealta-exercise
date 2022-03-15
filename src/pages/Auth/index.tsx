@@ -1,13 +1,16 @@
 import axios from 'axios';
 import React, { useCallback, useState } from 'react';
+
 import { FiUser } from 'react-icons/fi';
 import { MdPassword } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
+
 import Input from '../../components/Input';
-import { changePenalCodes, changeUser } from '../../services/ContainerSlice';
+
+import { changeUser } from '../../services/slices/ContainerSlice';
+import { setPenalCode } from '../../services/slices/PenalSlice';
+
 import { AuthContainer } from './styles';
-
-
 
 const Auth: React.FC = () => {
     let [user, setUser] = useState('')
@@ -23,7 +26,7 @@ const Auth: React.FC = () => {
                     user: user,
                     password: password
                 }))
-                dispath(changePenalCodes(res.data.codigopenal))
+                dispath(setPenalCode(res.data.codigopenal))
             } else {
                 console.log(false)
             }

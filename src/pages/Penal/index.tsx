@@ -4,13 +4,13 @@ import { IoCreateOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import Input from '../../components/Input';
 import PenalCode from '../../components/PenalCode';
-import { setActivedInfoModal } from '../../services/ContainerSlice';
+import { setActivedInfoModal } from '../../services/slices/ContainerSlice';
+import { RootState } from '../../services/Store';
 
 import {CreateButton, PenalContainer, PenalContent } from './styles';
 
 const Penal: React.FC = () => {
-    // @ts-ignore
-    const data = useSelector(state => state.container.penalCodes)
+    const data = useSelector<RootState>(state => state.penalCode)
     const dispatch = useDispatch()
 
     let handlePenal = (index: number) => {
@@ -39,7 +39,8 @@ const Penal: React.FC = () => {
                 </div>
             </div>
             <PenalContent>
-                {data.map((value: any, index: any) => {
+                {/* @ts-ignore   */}
+            {data.map((value: any, index: any) => {
                     return (
                         <PenalCode 
                             key={index} 

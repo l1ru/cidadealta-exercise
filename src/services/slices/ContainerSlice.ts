@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IContainer } from "../../types";
 
 export const slice = createSlice({
     name: "container",
@@ -9,10 +10,9 @@ export const slice = createSlice({
         editForm: false,
         user: '',
         isLogged: false,
-        penalCodes: []
-    },
+    } as IContainer ,
     reducers: {
-        changeUser(state, {payload}) { 
+        changeUser(state, {payload}) {
             return {
                 ...state,
                 isLogged: true,

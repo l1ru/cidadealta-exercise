@@ -5,7 +5,7 @@ import DialogContent from "@mui/material/DialogContent";
 import TextField from "@mui/material/TextField";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
-import {Button} from "../EditModal/styles";
+import {Button} from "../InfoModal/styles";
 import Dialog from "@mui/material/Dialog";
 import {DialogTitle} from "@mui/material";
 

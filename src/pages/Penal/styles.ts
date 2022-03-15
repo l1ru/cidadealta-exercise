@@ -51,41 +51,41 @@ animation: opacity 3s;
 `
 
 export const PenalContent = styled.div`
-width: 100%;
-height: 90%;
+  width: 100%;
+  height: 90%;
 
-display:flex;
-flex-wrap: wrap;
-align-content: flex-start;
+  display:flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
 
-overflow-y: auto;
+  overflow-y: auto;
 
-&::-webkit-scrollbar {
-  display: none;
-}
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 export const CreateButton = styled.div`
-cursor: pointer;
-background-color: #f6601f;
-display: flex;
-justify-content: space-around;
-align-items: center;
-border-radius: 5px;
-margin-left: 0.8vw;
-.icon {
-  margin-left: 0.4vw;
-  padding: 4px;
-  background-color: #f8f8ff40;
+  cursor: pointer;
+  background-color: #1976d2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   border-radius: 5px;
-  color: #f8f8ff;
-
-  font-size: 12px;
-}
-.title {
-    font-family: "Inter", sans-serif;
-    font-size: 10px;
+  margin-left: 0.8vw;
+  .icon {
+    margin-left: 0.4vw;
+    padding: 4px;
+    background-color: #f8f8ff40;
+    border-radius: 5px;
     color: #f8f8ff;
-    padding: 9px;
-}
+
+    font-size: 12px;
+  }
+  .title {
+      font-family: "Inter", sans-serif;
+      font-size: 10px;
+      color: #f8f8ff;
+      padding: 9px;
+  }
 `

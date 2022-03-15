@@ -72,8 +72,8 @@ export const EditButton = styled.div`
     color: #fff;
     cursor: pointer;
     &:hover {
-      background-color: #f6601f;
-      box-shadow: 0px 0px 8px 0px #f6601f;
+      background-color: #1976d2;
+      box-shadow: 0px 0px 8px 0px #1976d2;
     }
   }
 `
