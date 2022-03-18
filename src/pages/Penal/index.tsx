@@ -1,17 +1,18 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { IoCreateOutline } from 'react-icons/io5';
-import { useDispatch, useSelector } from 'react-redux';
 import Input from '../../components/Input';
 import PenalCode from '../../components/PenalCode';
+import { useAppDispatch, useAppSelector } from '../../services/Hooks';
 import { setActivedInfoModal, setCreateModalActived } from '../../services/slices/ContainerSlice';
 import { RootState } from '../../services/Store';
+import { IPenal } from '../../types';
 
 import {CreateButton, PenalContainer, PenalContent } from './styles';
 
 const Penal: React.FC = () => {
-    const data = useSelector<RootState>(state => state.penalCode)
-    const dispatch = useDispatch()
+    const penals = useAppSelector((state: RootState) => state.penalCode)
+    const dispatch = useAppDispatch()
 
     let handlePenal = (index: number) => {
         dispatch(setActivedInfoModal({
@@ -43,8 +44,8 @@ const Penal: React.FC = () => {
                 </div>
             </div>
             <PenalContent>
-                {/* @ts-ignore   */}
-            {data.map((value: any, index: any) => {
+            {penals.map((value: any, index: any) => {
+                
                     return (
                         <PenalCode 
                             key={index} 

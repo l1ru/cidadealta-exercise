@@ -29,7 +29,7 @@ animation: opacity 3s;
     display: flex;
     align-items: center;
     h2 {
-      font-family:  "Sora", sans-serif;
+      font-family: var(--font-sora);
       font-weight: 600;
       color: #fff;
     }
@@ -83,7 +83,7 @@ export const CreateButton = styled.div`
     font-size: 12px;
   }
   .title {
-      font-family: "Inter", sans-serif;
+      font-family: var(--font-inter);
       font-size: 10px;
       color: #f8f8ff;
       padding: 9px;

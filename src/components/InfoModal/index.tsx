@@ -23,15 +23,13 @@ import DialogContentText from '@mui/material/DialogContentText';
 import TextField from '@mui/material/TextField';
 import MuiButton from '@mui/material/Button';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../services/Store';
 import { setActivedInfoModal } from '../../services/slices/ContainerSlice';
-import { updatePenalCode } from '../../services/slices/PenalSlice';
+import { deletePenalCode, updatePenalCode } from '../../services/slices/PenalSlice';
+import { useAppDispatch, useAppSelector } from '../../services/Hooks';
 
 const EditModal: React.FC = () => {
-    const state = useSelector<RootState>(state => state)
-    const dispatch = useDispatch()
-    // @ts-ignore
+    const state = useAppSelector(state => state)
+    const dispatch = useAppDispatch()
     const actualPenalCode = state.penalCode[state.container.infoModalActived]
 
     let [open, setOpen] = useState(false)
@@ -63,6 +61,13 @@ const EditModal: React.FC = () => {
             status: actualPenalCode.status
         }))
         handleClose()
+    }
+
+    const handleDelete = () => {
+        if(window.confirm("Deseja realmente deletar?")) {
+            dispatch(deletePenalCode(actualPenalCode.id))
+            closeModal()
+        }
     }
 
     let date = new Date(actualPenalCode.dataCriacao)
@@ -108,7 +113,7 @@ const EditModal: React.FC = () => {
                     <div className='title'>EDITAR</div>
                 </MuiButton>
 
-                <MuiButton variant='outlined' color='error' onClick={handleOpen} >
+                <MuiButton variant='outlined' color='error' onClick={handleDelete} >
                     <div className='title'>DELETAR</div>
                 </MuiButton>
             </EditButton>
@@ -154,7 +159,7 @@ const EditModal: React.FC = () => {
                         type={"number"}
                         fullWidth
                         variant="outlined"
-                        onChange={(e) => setPenality(e.target.value)}
+                        onChange={(e) => setPenality(parseInt(e.target.value))}
                     />
                 </DialogContent>
 
@@ -169,7 +174,7 @@ const EditModal: React.FC = () => {
                         type={"number"}
                         fullWidth
                         variant="outlined"
-                        onChange={(e) => setTime(e.target.value)}
+                        onChange={(e) => setTime(parseInt(e.target.value))}
                     />
                 </DialogContent>
                 <DialogActions>

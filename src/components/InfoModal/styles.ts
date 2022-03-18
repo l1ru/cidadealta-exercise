@@ -45,13 +45,13 @@ export const TextStatus = styled.div`
     h5 {
         display:flex ;
         align-items: center;
-        font-family: "Sora", sans-serif;
+        font-family:var(--font-sora);
         color: #f8f8ff;
         font-size: 14px;
         font-weight: 500;
     }
     p {
-        font-family: "Inter", sans-serif;
+        font-family: var(--font-inter);
         font-weight: 400;
         color: #f8f8ff;
         margin-top: 4px;
@@ -69,7 +69,7 @@ export const TextPenalty = styled.div`
     h5 {
         display:flex ;
         align-items: center;
-        font-family: "Sora", sans-serif;
+        font-family:var(--font-sora);
         color: #f8f8ff;
         font-size: 14px;
         font-weight: 500;
@@ -80,7 +80,7 @@ export const TextPenalty = styled.div`
         h4 {
             display:flex ;
             align-items: center;
-            font-family: "Inter", sans-serif;
+            font-family: var(--font-inter);
             color: #f8f8ff;
             padding: 6px 10px;
             border-radius: 50%;
@@ -94,7 +94,7 @@ export const TextPenalty = styled.div`
             } 
         }
         p {
-            font-family: "Inter", sans-serif;
+            font-family: var(--font-inter);
             color: #f8f8ff;
             margin-left: 10px;
             span {
@@ -111,7 +111,7 @@ export const DescriptionContainer = styled.div`
     margin-top: 15px;
 
     text-align: justify;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-inter);
     font-weight: 400;
     font-size: 12px;
 
@@ -124,7 +124,7 @@ export const DateCreation = styled.div`
     margin-top: 10px;
 
     text-align: justify;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-inter);
     font-weight: 400;
     font-size: 12px;
 

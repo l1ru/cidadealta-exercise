@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IPenal } from "../../types";
 import { RootState } from "../Store";
 
+
+
 export const slice = createSlice({
     name: "penalCodes",
     initialState: [] as IPenal[],
@@ -10,6 +12,7 @@ export const slice = createSlice({
             return payload
         },
         addPenalCode: (state, {payload}) => {
+            console.log(payload.dataCriacao)
             return [...state, payload]
         },
         deletePenalCode: (state, {payload} ) => {
@@ -35,8 +38,6 @@ export const slice = createSlice({
     }
 })
 
-export const { setPenalCode, deletePenalCode, updatePenalCode } = slice.actions
-
-export const getPenalCodes = (state: RootState) => state.penalCode
+export const { setPenalCode, deletePenalCode, updatePenalCode, addPenalCode } = slice.actions
 
 export default slice.reducer

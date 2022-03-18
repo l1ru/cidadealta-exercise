@@ -32,14 +32,14 @@ export const InfoSide = styled.div`
 export const InfoTitle = styled.h5`
   display:flex ;
   align-items: center;
-  font-family: "Sora", sans-serif;
+  font-family: var(--font-sora);
   color: #fff;
   font-size: 14px;
   font-weight: 500;
 `
 
 export const InfoStatus = styled.div`
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-inter);
   font-weight: 400;
   color: #fff;
   margin-top: 4px;

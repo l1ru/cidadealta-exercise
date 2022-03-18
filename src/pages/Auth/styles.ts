@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const AuthContainer = styled.div`
   p {
     font-size: 18px;
-    font-family: "Sora", sans-serif;
+    font-family:var(--font-sora);
     font-weight: 600;
     color: #fff;
     
@@ -14,7 +14,7 @@ export const AuthContainer = styled.div`
     padding: 10px 0;
     cursor: pointer;
 
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-inter);
     font-weight: 700;
     background-color: var(--blue);
     border: 0;

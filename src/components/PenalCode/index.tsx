@@ -23,7 +23,7 @@ const PenalCode: React.FC<PenalCodeProps> = ({ onClick, title, status}) => {
         <InfoSide>
             <InfoTitle>{title}</InfoTitle>
         </InfoSide>
-        <EditButton className={status} onClick={onClick} >
+        <EditButton className={status} onClick={status === "active" ? onClick : () => {}} >
           <IoReaderOutline />
         </EditButton>
       </Content>

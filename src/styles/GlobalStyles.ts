@@ -11,6 +11,10 @@ export const GlobalStyles = createGlobalStyle`
         --blue-dark: #2C3246;
         --gray: #9195a0;
         --white: #fff;
+
+        --font-inter: "Inter", sans-serif;
+        --font-sora: "Sora", sans-serif;
+        
     }
 
 

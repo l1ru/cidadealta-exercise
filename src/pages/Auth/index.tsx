@@ -3,9 +3,9 @@ import React, { useCallback, useState } from 'react';
 
 import { FiUser } from 'react-icons/fi';
 import { MdPassword } from 'react-icons/md';
-import { useDispatch } from 'react-redux';
 
 import Input from '../../components/Input';
+import { useAppDispatch } from '../../services/Hooks';
 
 import { changeUser } from '../../services/slices/ContainerSlice';
 import { setPenalCode } from '../../services/slices/PenalSlice';
@@ -15,7 +15,7 @@ import { AuthContainer } from './styles';
 const Auth: React.FC = () => {
     let [user, setUser] = useState('')
     let [password, setPassword] = useState('')
-    let dispath = useDispatch()
+    let dispath = useAppDispatch()
 
     let AuthAction = useCallback(() => {
         axios.get("https://my-json-server.typicode.com/cidadealta/exercise/db").then(res => {
