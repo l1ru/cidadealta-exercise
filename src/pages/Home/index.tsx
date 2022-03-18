@@ -1,19 +1,22 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import {Container, Content} from './styles';
-
 import {GlobalStyles} from '../../styles/GlobalStyles'
 
 import Auth from '../Auth';
-import { useSelector } from 'react-redux';
 import Penal from '../Penal';
 import EditModal from '../../components/InfoModal';
+import CreatePenalModal from '../../components/CreatePenal'
 
 const Home: React.FC = () => {
     // @ts-ignore
     const isLogged = useSelector(state => state.container.isLogged)
     // @ts-ignore
-    const modalOpen = useSelector(state => state.container.infoModal)
+    const infoOpen = useSelector(state => state.container.infoModal)
+    // @ts-ignore
+    const createModal = useSelector(state => state.container.createModal)
+    
     return (
         <Container>
             <GlobalStyles/>
@@ -25,7 +28,9 @@ const Home: React.FC = () => {
                     <Penal />
                 ): ""}
             </Content>
-            {modalOpen ? <EditModal /> : ""}
+            {infoOpen ? <EditModal /> : ""}
+            {/* {createModal ? <CreateModal /> : ""} */}
+            <CreatePenalModal />
         </Container>
     );
 }

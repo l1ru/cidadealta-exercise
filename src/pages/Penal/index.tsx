@@ -4,7 +4,7 @@ import { IoCreateOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import Input from '../../components/Input';
 import PenalCode from '../../components/PenalCode';
-import { setActivedInfoModal } from '../../services/slices/ContainerSlice';
+import { setActivedInfoModal, setCreateModalActived } from '../../services/slices/ContainerSlice';
 import { RootState } from '../../services/Store';
 
 import {CreateButton, PenalContainer, PenalContent } from './styles';
@@ -20,6 +20,10 @@ const Penal: React.FC = () => {
         }))
     }
 
+    let handleCreateModal = () => {
+        dispatch(setCreateModalActived(true))
+    }
+
     return (
         <PenalContainer>
             <div className='title-container'>
@@ -32,7 +36,7 @@ const Penal: React.FC = () => {
                         icon={<FiSearch  />}
                         type="text"
                     />
-                    <CreateButton>
+                    <CreateButton onClick={handleCreateModal} >
                         <div className='icon'><IoCreateOutline/></div>
                         <div className='title'>CRIAR</div>
                     </CreateButton>

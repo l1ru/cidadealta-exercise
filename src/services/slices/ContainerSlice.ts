@@ -6,7 +6,7 @@ export const slice = createSlice({
     initialState: {
         infoModal: false,
         infoModalActived: 0,
-        createForm: false,
+        createModal: false,
         editForm: false,
         user: '',
         isLogged: false,
@@ -31,10 +31,16 @@ export const slice = createSlice({
                 infoModal: payload.actived,
                 infoModalActived: payload.index
             }
-        }
+        },
+        setCreateModalActived(state, {payload}) {
+            return {
+                ...state, 
+                createModal: payload
+            }
+        },
     }
 })
 
-export const { changeUser, changePenalCodes, setActivedInfoModal } = slice.actions
+export const { changeUser, changePenalCodes, setActivedInfoModal, setCreateModalActived } = slice.actions
 
 export default slice.reducer

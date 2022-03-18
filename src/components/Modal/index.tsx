@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ButtonContainer, Container, Content, Button, TextContainer, TextPenalty, TextStatus, DescriptionContainer, DateCreation, EditButton } from './styles';
+import { Container, Content } from './styles';
 
 
 

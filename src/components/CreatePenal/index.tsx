@@ -8,26 +8,27 @@ import DialogActions from "@mui/material/DialogActions";
 import {Button} from "../InfoModal/styles";
 import Dialog from "@mui/material/Dialog";
 import {DialogTitle} from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { setCreateModalActived } from "../../services/slices/ContainerSlice";
 
 const CreatePenal: React.FC = () => {
-    let [open, setOpen] = useState(true)
-    let [title, setTitle] = useState('Desacato')
-    let [description, setDescription] = useState('Desacato, desobediência ou desrespeito perante um tribunal ou oficiais da policia na forma de\n' +
-        '                comportamento que se opõe ou desafia a autoridade, a justiça e a dignidade do tribunal. Um réu só pode\n' +
-        '                ser cobrado uma vez por desacato')
-    let [penality, setPenality] = useState(5000)
-    let [time, setTime] = useState(30)
 
-    function handleOpen() {
-        setOpen(true)
-    }
+    //@ts-ignore
+    const createModal = useSelector(state => state.container.createModal)
+    const dispatch = useDispatch()
+
+    let [title, setTitle] = useState('')
+    let [description, setDescription] = useState('')
+    let [penality, setPenality] = useState(0)
+    let [time, setTime] = useState(0)
+
 
     function handleClose() {
-        setOpen(false)
+        dispatch(setCreateModalActived(false))
     }
     return (
         <Container>
-            <Dialog open={open} onClose={handleClose} >
+            <Dialog open={createModal} onClose={handleClose} >
                 <DialogTitle>Criar Codigo Penal</DialogTitle>
                 <DialogContent>
                     <DialogContentText>

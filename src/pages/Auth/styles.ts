@@ -16,7 +16,7 @@ export const AuthContainer = styled.div`
 
     font-family: "Inter", sans-serif;
     font-weight: 700;
-    background-color: #f6601f;
+    background-color: var(--blue);
     border: 0;
     border-radius: 10px;
     color: #fff;

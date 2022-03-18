@@ -2,13 +2,12 @@ import styled from 'styled-components';
 
 export const InputContainer = styled.div`
     font-family: "Inter", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--white);
     display: flex;
     align-items: center;
 
     margin-bottom: 16px;
-
    
 
     .input-icon {
@@ -31,7 +30,8 @@ export const InputContainer = styled.div`
         font-size: 10px;
         font-weight: 500;
         background-color: #2E2F40;
-        padding: 10px 12px;
+        /* padding: 9.5px 12px; */
+        height: 1.95rem;
         border-radius: 0 10px 10px 0     ;
         border: none;
 

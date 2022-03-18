@@ -1,7 +1,7 @@
 export interface IContainer {
     infoModal: boolean,
     infoModalActived: number,
-    createForm: boolean,
+    createModal: boolean,
     editForm: boolean,
     user: string,
     isLogged: boolean,

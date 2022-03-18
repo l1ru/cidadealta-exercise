@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
 
     :root {
-        --blue: #508BEA;
+        --blue: #1976d2;
         --blue-dark: #2C3246;
         --gray: #9195a0;
         --white: #fff;

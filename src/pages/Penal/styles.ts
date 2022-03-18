@@ -67,7 +67,7 @@ export const PenalContent = styled.div`
 
 export const CreateButton = styled.div`
   cursor: pointer;
-  background-color: #1976d2;
+  background-color: var(--blue);
   display: flex;
   justify-content: space-around;
   align-items: center;

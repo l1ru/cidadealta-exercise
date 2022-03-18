@@ -24,8 +24,8 @@ export const Button = styled.button`
     transition: 500ms; 
     &:hover {
         transform: scale(1.1);
-        background-color: #1976d2;
-        box-shadow: 0px 0px 8px 0px #1976d2;
+        background-color: var(--blue);
+        box-shadow: 0px 0px 8px 0px var(--blue);
     }
 `
 
